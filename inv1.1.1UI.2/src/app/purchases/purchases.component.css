@@ -1,0 +1,14 @@
+.table{
+    background-color: rgb(44, 38, 102);
+    border-color: #96D4D4;
+}
+.tr {
+    border-bottom: 1px solid #ddd;
+    border-right: 1px solid #75dfdf;
+  }
+.tr:hover {background-color: #75dfdf;}
+.btn{
+  background-color: rgb(44, 38, 102);
+  color: aliceblue;
+  
+}

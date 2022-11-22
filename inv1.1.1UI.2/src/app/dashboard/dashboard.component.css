@@ -11,7 +11,7 @@
   }
 .lister a {
     
-    display: block;
+    display: block;  
     color: rgb(255, 255, 255);
     padding: 30px 20px;
     text-decoration: none;
@@ -23,7 +23,7 @@
     color: white;
 }
 .active {
-    background-color: #f58e41;
+    background-color: rgb(44, 38, 102);
     color: white;
 }
 .context{
@@ -37,7 +37,17 @@
 .a{
     color: rgb(250, 249, 248);
 }
+.table{
+    background-color: rgb(44, 38, 102);
+    border-color: #96D4D4;
+}
+.tr {
+    border-bottom: 1px solid #ddd;
+    border-right: 1px solid #75dfdf;
+  }
+.tr:hover {background-color: #75dfdf;}
 .btn{
-    background-color: darkgoldenrod;
-    color: aliceblue;
+  background-color: rgb(44, 38, 102);
+  color: aliceblue;
+  
 }
