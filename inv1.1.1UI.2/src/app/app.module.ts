@@ -12,6 +12,7 @@ import { AboutComponent } from './about/about.component';
 import { FormsModule } from '@angular/forms';
 import { SalesComponent } from './sales/sales.component';
 import { PurchasesComponent } from './purchases/purchases.component';
+import { TransactionsComponent } from './transactions/transactions.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { PurchasesComponent } from './purchases/purchases.component';
     SuppliersComponent,
     AboutComponent,
     SalesComponent,
-    PurchasesComponent
+    PurchasesComponent,
+    TransactionsComponent
   ],
   imports: [
     BrowserModule,

@@ -20,6 +20,10 @@ const routes: Routes = [
      component: CustomersComponent,
    },
    {
+    path : 'transactions',
+    component: TransactionsComponent,
+  },
+   {
     path : 'inventory',
     component: InventoryComponent,
   },
