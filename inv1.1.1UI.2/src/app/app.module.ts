@@ -10,7 +10,6 @@ import { InventoryComponent } from './inventory/inventory.component';
 import { SuppliersComponent } from './suppliers/suppliers.component';
 import { AboutComponent } from './about/about.component';
 import { FormsModule } from '@angular/forms';
-import { TransactionsComponent } from './transactions/transactions.component';
 import { SalesComponent } from './sales/sales.component';
 import { PurchasesComponent } from './purchases/purchases.component';
 
@@ -23,7 +22,6 @@ import { PurchasesComponent } from './purchases/purchases.component';
     InventoryComponent,
     SuppliersComponent,
     AboutComponent,
-    TransactionsComponent,
     SalesComponent,
     PurchasesComponent
   ],

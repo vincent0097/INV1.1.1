@@ -32,10 +32,6 @@ const routes: Routes = [
     component: SalesComponent,
   },
   {
-    path : 'transactions',
-    component: TransactionsComponent,
-  },
-  {
    path : 'suppliers',
    component: SuppliersComponent,
  }] },
