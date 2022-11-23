@@ -1,0 +1,60 @@
+.body{
+    background-color: black;
+    color: aliceblue;
+}
+.navbar{
+    background-color: black;
+    color: aliceblue;
+    font-size: medium;
+    width: 100%;
+    list-style-type: none;
+}
+.p{
+    color: blue;
+    font-style: italic;
+    text-align: right;
+}
+.a{
+    color: rgb(255, 255, 255);
+    font-style: italic;
+    text-align: right;
+
+}
+
+
+.first-row {
+    display: flex;
+    width: 66%;
+    justify-content: space-around;
+}
+
+.input-button {
+    display: flex;
+    width: 45%;
+}
+
+.mat-raised-button {
+    background-color: #FFC200;
+    color: black;
+}
+
+.input {
+    width: 100%;
+}
+
+.button {
+    margin-left: 10px;
+    padding-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+.collect{
+    width: 560px;
+    height: 160px;
+    background-color: #FFC200;
+    text-align: center;
+    display: inline-block;
+    border-radius: 25px;
+    margin-left: auto;
+    margin-right: auto;
+}

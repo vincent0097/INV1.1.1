@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./about.component.css']
 })
 export class AboutComponent {
-
+  onClick(data: NgForm ){
+    console.log(value);
+  }
+  onSubmit(){
+      /*console.log("Form Submitted!");*/
+      
+  }
 }
