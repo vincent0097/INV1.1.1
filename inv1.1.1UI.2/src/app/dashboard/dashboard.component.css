@@ -28,11 +28,10 @@
 }
 .context{
     align-content: right;
-    position: fixed;
+    position: absolute;
     left: 25%;
     top: 64px;
-    bottom: 0px;
-    right: 0px;
+    right: 0%;
 }
 .a{
     color: rgb(250, 249, 248);

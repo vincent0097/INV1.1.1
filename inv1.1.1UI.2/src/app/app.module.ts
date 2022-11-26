@@ -13,6 +13,7 @@ import { FormsModule } from '@angular/forms';
 import { SalesComponent } from './sales/sales.component';
 import { PurchasesComponent } from './purchases/purchases.component';
 import { TransactionsComponent } from './transactions/transactions.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { TransactionsComponent } from './transactions/transactions.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule 
   ],
   providers: [],
   bootstrap: [AppComponent]

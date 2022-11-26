@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-about',
@@ -6,11 +7,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./about.component.css']
 })
 export class AboutComponent {
-  onClick(data: NgForm ){
-    console.log(value);
+  onClick(){
+    console.log();
   }
-  onSubmit(){
-      /*console.log("Form Submitted!");*/
+  onSubmit(about:NgForm){
+      console.log(about.value);
       
   }
+
 }

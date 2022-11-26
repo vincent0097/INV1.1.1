@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Suppliers } from './suppliers';
 
 
 @Component({
@@ -8,11 +9,21 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./suppliers.component.css']
 })
 export class SuppliersComponent {
+  public suppliers:Suppliers;
+  constructor(){
+    this.suppliers=new Suppliers();
+  }
 
-  usLogin(data: NgForm) {  
-    console.log(data.value)
+  onClick(){
+    console.log();
+  }
+
+  onSubmit(data: NgForm) { 
+    this.suppliers=data.value; 
+    console.log(this.suppliers)
     if(1){
-      alert("successful")
+      alert("data saved")
     }
   }
+  
 }

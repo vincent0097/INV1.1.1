@@ -1,23 +1,23 @@
 <body>
-    <div class="data">
-      <input type="text" ngModel name="firstName" class="form-control form-control-lg" />
-      <label class="label" for="firstName">Supplier ID</label>
-    </div>
-    <div class="data">
-      <input type="int" ngModel name="firstName" class="form-control form-control-lg" />
-      <label class="label" for="firstName">ProductID</label>
-    </div>
-    <div class="data">
-      <input type="int" ngModel name="firstName" class="form-control form-control-lg" />
-      <label class="label" for="firstName">Cost</label>
-    </div>
-    <div class="data">
-      <input type="int" ngModel name="firstName" class="form-control form-control-lg" />
-      <label class="label" for="firstName">Total Cost</label>
-    </div>
-    <button class="btn" type="Add">Add</button>
-    <button class="btn" type="Edit">Edit</button>
-    <button class="btn" type="Delete">Delete</button>
+    <form class="collect" #purchases="ngForm" (ngSubmit)="onSubmit(purchases)">
+      <div class="data">
+        <input type="text" ngModel name="supplierID" class="form-control form-control-lg" />
+        <label class="label" for="supplierID">Supplier ID</label>
+      </div>
+      <div class="data">
+        <input type="int" ngModel name="productID" class="form-control form-control-lg" />
+        <label class="label" for="productID">ProductID</label>
+      </div>
+      <div class="data">
+        <input type="int" ngModel name="costOfPurchase" class="form-control form-control-lg" />
+        <label class="label" for="costOfPurchase">Cost</label>
+      </div>
+      <div class="data">
+        <input type="int" ngModel name="totalCost" class="form-control form-control-lg" />
+        <label class="label" for="totalCost">Total Cost</label>
+      </div>
+      <button class="btn" type="Add">Add</button>
+    </form>
     <div>
       <table class="table">
         <tr class="tr">
@@ -27,13 +27,18 @@
           <th>Cost</th>
           <th>Total Cost</th>
           <th>Date Of Purchase</th>
+          <th>Action</th>
         </tr>
-        <tr>
-          
+        <tr class="tr">
+          <td>1</td>
+          <td>1</td>
+          <td>1</td>
+          <td>150,000.00</td>
+          <td>150,000.00</td>
+          <td>30-12-2021</td>
+          <td><button class="btn" type="Edit">Edit</button><button class="btn" type="Delete">Delete</button></td>
         </tr>
-        <tr>
-          
-        </tr>
+        <tr class="tr"></tr>
       </table>
     </div>
   </body>

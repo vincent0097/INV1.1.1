@@ -1,44 +1,46 @@
 <body>
-  
+  <form class="collect" #transactionsdata="ngForm" (ngSubmit)="onSubmit(transactionsdata)">
     <div class="data">
-      <input type="text" ngModel name="firstName" class="form-control form-control-lg" />
-      <label class="label" for="firstName">User ID</label>
+      <input type="hidden"  ngModel="{{transactions.TransactionID}}"  name="TransactionID"  class="form-control form-control-lg" />
+      <input type="text" ngModel="{{transactions.UserID}}" name="userID" class="form-control form-control-lg" />
+      <label class="label" for="userID">User ID</label>
     </div>
     <div class="data">
-      <input type="int" ngModel name="firstName" class="form-control form-control-lg" />
-      <label class="label" for="firstName">Customer ID</label>
+      <input type="int" ngModel="{{transactions.CustomerID}}" name="customerID" class="form-control form-control-lg" />
+      <label class="label" for="customerID">Customer ID</label>
     </div>
     <div class="data">
-      <input type="int" ngModel name="firstName" class="form-control form-control-lg" />
-      <label class="label" for="firstName">Date Of Transaction</label>
+      <input type="int" ngModel="{{transactions.SalesID}}" name="salesID" class="form-control form-control-lg" />
+      <label class="label" for="SalesID">Sales ID</label>
     </div>
     <div class="data">
-      <input type="int" ngModel name="firstName" class="form-control form-control-lg" />
-      <label class="label" for="firstName">Sales ID</label>
-    </div>
-    <div class="data">
-      <input type="int" ngModel name="firstName" class="form-control form-control-lg" />
-      <label class="label" for="firstName">Amount of Transaction</label>
+      <input type="int" ngModel="{{transactions.AmountTransacted}}" name="amountTransacted" class="form-control form-control-lg" />
+      <label class="label" for="amountTransacted">Amount of Transaction</label>
     </div>
     <button class="btn" type="Add">Add</button>
-    <button class="btn" type="Edit">Edit</button>
-    <button class="btn" type="Delete">Delete</button>
+  </form>
+    
     <div>
       <table class="table">
         <tr class="tr">
           <th>Transaction ID</th>
+          <th>User ID</th>
           <th>Customer ID</th>
-          <th>ProductID</th>
           <th>Date Of Transaction</th>
           <th>Sales ID</th>
           <th>Amount of Transaction</th>
+          <th>Action</th>
         </tr>
-        <tr>
-          
+        <tr class="tr" *ngFor="let transaction of transactionslist">
+          <td>{{transaction.TransactionID}}</td>
+          <td>{{transaction.UserID}}</td>
+          <td>{{transaction.CustomerID}}</td>
+          <td>{{transaction.DateOfPurchase}}</td>
+          <td>{{transaction.SalesID}}</td>
+          <td>{{transaction.AmountTransacted}}</td>
+          <td><button class="btn" (click)="editTransaction(transaction)">Edit</button><button class="btn"  (click)="deleteTransaction(transaction.TransactionID)">Delete</button></td>
         </tr>
-        <tr>
-          
-        </tr>
+        <tr class="tr"></tr>
       </table>
     </div>
   </body>

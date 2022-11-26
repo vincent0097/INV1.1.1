@@ -11,21 +11,29 @@
     </nav>
   </div>
   <P class="p">get that text</P>
-  <form class="collect" action="data collection" (ngSubmit)="onSubmit()">
-    <div>
-      <input type="text">
-        <label for="text"> new </label>
+  <form class="collect" #about="ngForm" (ngSubmit)="onSubmit(about)">
+    <div class="data">
+      <input type="text" ngModel name="User ID" class="form-control form-control-lg" />
+      <label class="label" for="firstName">User ID</label>
     </div>
-    <div>
-      <input type="text" ngModel name="new">
-        <label for="text"> new </label>
+    <div class="data">
+      <input type="int" ngModel name="Customer ID" class="form-control form-control-lg" />
+      <label class="label" for="firstName">Customer ID</label>
     </div>
-    <div>
-      <input type="text">
-        <label for="text"> new </label>
+    <div class="data">
+      <input type="int" ngModel name="ate Of Transaction" class="form-control form-control-lg" />
+      <label class="label" for="firstName">Date Of Transaction</label>
     </div>
-    <div class="btn" (click)="onClick(input.value)" >
-      <button class="btn" type="submit" >SUBMIT</button>
+    <div class="data">
+      <input type="int" ngModel name="Sales ID" class="form-control form-control-lg" />
+      <label class="label" for="firstName">Sales ID</label>
     </div>
+    <div class="data">
+      <input type="int" ngModel name="Amount of Transaction" class="form-control form-control-lg" />
+      <label class="label" for="firstName">Amount of Transaction</label>
+    </div>
+    <button class="btn" type="Add">Submit</button>
+    <button class="btn" type="Edit">Edit</button>
+    <button class="btn" type="Delete">Delete</button>
   </form>
 </body>

@@ -49,8 +49,8 @@
     align-items: center;
 }
 .collect{
-    width: 560px;
-    height: 160px;
+    width: 90%;
+    height:  90%;
     background-color: #FFC200;
     text-align: center;
     display: inline-block;

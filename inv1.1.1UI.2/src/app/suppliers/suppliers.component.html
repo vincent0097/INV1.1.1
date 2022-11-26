@@ -1,27 +1,27 @@
 <body>
-  <div class="data">
-    <input type="text" ngModel name="firstName" class="form-control form-control-lg" />
-    <label class="label" for="firstName">Suppliers Name</label>
-  </div>
-  <div class="data">
-    <input type="int" ngModel name="firstName" class="form-control form-control-lg" />
-    <label class="label" for="firstName">ProductID</label>
-  </div>
-  <div class="data">
-    <input type="int" ngModel name="firstName" class="form-control form-control-lg" />
-    <label class="label" for="firstName">Email</label>
-  </div>
-  <div class="data">
-    <input type="int" ngModel name="firstName" class="form-control form-control-lg" />
-    <label class="label" for="firstName">Phone No</label>
-  </div>
-  <div class="data">
-    <input type="int" ngModel name="firstName" class="form-control form-control-lg" />
-    <label class="label" for="firstName">Address</label>
-  </div>
-  <button class="btn" type="Add">Add</button>
-  <button class="btn" type="Edit">Edit</button>
-  <button class="btn" type="Delete">Delete</button>
+  <form class="collect" #suppliers="ngForm" (ngSubmit)="onSubmit(suppliers)">
+    <div class="data">
+      <input type="text" ngModel name="supplierName" class="form-control form-control-lg" />
+      <label class="label" for="supplierName">Suppliers Name</label>
+    </div>
+    <div class="data">
+      <input type="int" ngModel name="productID" class="form-control form-control-lg" />
+      <label class="label" for="productID">ProductID</label>
+    </div>
+    <div class="data">
+      <input type="int" ngModel name="email" class="form-control form-control-lg" />
+      <label class="label" for="email">Email</label>
+    </div>
+    <div class="data">
+      <input type="int" ngModel name="phoneNo" class="form-control form-control-lg" />
+      <label class="label" for="phoneNo">Phone No</label>
+    </div>
+    <div class="data">
+      <input type="int" ngModel name="address" class="form-control form-control-lg" />
+      <label class="label" for="address">Address</label>
+    </div>
+    <button class="btn" type="Add">Add</button>
+  </form>
   <div>
     <table class="table">
       <tr class="tr">
@@ -31,13 +31,18 @@
         <th>Email</th>
         <th>Phone No</th>
         <th>Address</th>
+        <th>Action</th>
       </tr>
-      <tr>
-        
+      <tr class="tr">
+        <td>1</td>
+        <td>Adenkule</td>
+        <td>1</td>
+        <td>younow@gmail.com</td>
+        <td>1234567890</td>
+        <td>juja</td>
+        <td><button class="btn" type="Edit">Edit</button><button class="btn" type="Delete">Delete</button></td>
       </tr>
-      <tr>
-        
-      </tr>
+      <tr class="tr"></tr>
     </table>
   </div>
 </body>

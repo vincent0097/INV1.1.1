@@ -1,23 +1,26 @@
 <body>
-  <div class="data">
-    <input type="text" ngModel name="firstName" class="form-control form-control-lg" />
-    <label class="label" for="firstName">First Name</label>
-  </div>
-  <div class="data">
-    <input type="int" ngModel name="firstName" class="form-control form-control-lg" />
-    <label class="label" for="firstName">Last Name</label>
-  </div>
-  <div class="data">
-    <input type="int" ngModel name="firstName" class="form-control form-control-lg" />
-    <label class="label" for="firstName">Email</label>
-  </div>
-  <div class="data">
-    <input type="int" ngModel name="firstName" class="form-control form-control-lg" />
-    <label class="label" for="firstName">Phone No</label>
-  </div>
-  <button class="btn" type="Add">Add</button>
-  <button class="btn" type="Edit">Edit</button>
-  <button class="btn" type="Delete">Delete</button>
+  <form class="collect" #formcustomers="ngForm" (ngSubmit)="onSubmit(formcustomers)">
+    <div class="data">
+      <input type="hidden"  ngModel="{{customers.CustomerID}}"  name="CustomerID"  class="form-control form-control-lg" />
+      <input type="text" ngModel="{{customers.FirstName}}"  name="firstName"  class="form-control form-control-lg" />
+      <label class="label" for="firstName" >First Name</label>
+    </div>
+    <div class="data">
+      <input type="int" ngModel="{{customers.LastName}}" name="lastName" class="form-control form-control-lg" />
+      <label class="label" for="lastName">Last Name</label>
+    </div>
+    <div class="data">
+      <input type="int" ngModel="{{customers.Email}}" name="email" class="form-control form-control-lg" />
+      <label class="label" for="email">Email</label>
+    </div>
+    <div class="data">
+      <input type="int" ngModel="{{customers.PhoneNo}}" name="phoneNo" class="form-control form-control-lg" />
+      <label class="label" for="phoneNo">Phone No</label>
+    </div>
+    <button class="btn" type="Add">Save</button>
+    
+  </form>
+  
   <div>
     <table class="table">
       <tr class="tr">
@@ -26,12 +29,15 @@
         <th>Last Name</th>
         <th>Email</th>
         <th>Phone No</th>
+        <th>Action</th>
       </tr>
-      <tr>
-        
-      </tr>
-      <tr>
-        
+      <tr class="tr" *ngFor="let customer of customerslist">
+        <td>{{customer.CustomerID}}</td>
+        <td>{{customer.FirstName}}</td>
+        <td>{{customer.LastName}}</td>
+        <td>{{customer.Email}}</td>
+        <td>{{customer.PhoneNo}}</td>
+        <td><button class="btn" (click)="editCustomer(customer)">Edit</button><button class="btn"  (click)="deleteCustomer(customer.CustomerID)">Delete</button></td>
       </tr>
     </table>
   </div>

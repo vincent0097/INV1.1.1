@@ -118,12 +118,12 @@ namespace INV1._1._1.Controllers
             return new JsonResult("Updated Successfully");
         }
 
-        [HttpDelete("{ID}")]
-        public JsonResult Delete(Customers Customers)
+        [HttpDelete("{id}")]
+        public JsonResult Delete(int id)
         {
             string query = @"
-                           delete Customers from dbo.Customers
-                            where CustomerID=@CustomerID
+                           delete from dbo.Customers
+                            where CustomerId=@CustomerId
                             ";
 
             DataTable table = new DataTable();
@@ -134,7 +134,7 @@ namespace INV1._1._1.Controllers
                 myCon.Open();
                 using (SqlCommand myCommand = new SqlCommand(query, myCon))
                 {
-                    myCommand.Parameters.AddWithValue("@CustomerID", Customers.CustomerID);
+                    myCommand.Parameters.AddWithValue("@CustomerID", id);
 
                     myReader = myCommand.ExecuteReader();
                     table.Load(myReader);

@@ -1,19 +1,21 @@
 <body>
+  <form #inventory="ngForm" (ngSubmit)="onSubmit(inventory)">
     <div class="data">
-      <input type="text" ngModel name="firstName" class="form-control form-control-lg" />
-      <label class="label" for="firstName">Product Name</label>
+      <input type="hidden"  ngModel="{{inventory.ProductID}"  name="CustomerID"  class="form-control form-control-lg" />
+      <input type="text" ngModel="{{inventory.ProductName}}" name="ProductName" class="form-control form-control-lg" />
+      <label class="label" for="ProductName">Product Name</label>
     </div>
     <div class="data">
-      <input type="int" ngModel name="firstName" class="form-control form-control-lg" />
-      <label class="label" for="firstName">Product Type</label>
+      <input type="int" ngModel="{{inventory.ProductType}}" name="ProductType" class="form-control form-control-lg" />
+      <label class="label" for="ProductType">Product Type</label>
     </div>
     <div class="data">
-      <input type="int" ngModel name="firstName" class="form-control form-control-lg" />
-      <label class="label" for="firstName">Description</label>
+      <input type="int" ngModel="{{inventory.Description}}" name="Description" class="form-control form-control-lg" />
+      <label class="label" for="Description">Description</label>
     </div>
     <button class="btn" type="Add">Add</button>
-    <button class="btn" type="Edit">Edit</button>
-    <button class="btn" type="Delete">Delete</button>
+  </form>
+    
     <div>
       <table class="table">
         <tr class="tr">
@@ -21,11 +23,16 @@
           <th>Product Name</th>
           <th>Product Type</th>
           <th>Description</th>
+          <th>Action</th>
         </tr>
-        <tr>
-          
+        <tr class="tr">
+          <td>{{inventory.ProductID}</td>
+          <td>{{inventory.ProductName}}</td>
+          <td>{{inventory.ProductType}}</td>
+          <td>{{inventory.Description}}</td>
+          <td><button class="btn" (click)="editInventory(inventory)">Edit</button><button class="btn" (click)="deleteInventory(inventory)">Delete</button></td>
         </tr>
-        <tr>
+        <tr class="tr">
           
         </tr>
       </table>
