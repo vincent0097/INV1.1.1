@@ -2,8 +2,6 @@
   <form class="collect" #transactionsdata="ngForm" (ngSubmit)="onSubmit(transactionsdata)">
     <div class="data">
       <input type="hidden"  ngModel="{{transactions.TransactionID}}"  name="TransactionID"  class="form-control form-control-lg" />
-      <input type="text" ngModel="{{transactions.UserID}}" name="userID" class="form-control form-control-lg" />
-      <label class="label" for="userID">User ID</label>
     </div>
     <div class="data">
       <input type="int" ngModel="{{transactions.CustomerID}}" name="customerID" class="form-control form-control-lg" />
@@ -24,7 +22,6 @@
       <table class="table">
         <tr class="tr">
           <th>Transaction ID</th>
-          <th>User ID</th>
           <th>Customer ID</th>
           <th>Date Of Transaction</th>
           <th>Sales ID</th>
@@ -33,7 +30,6 @@
         </tr>
         <tr class="tr" *ngFor="let transaction of transactionslist">
           <td>{{transaction.TransactionID}}</td>
-          <td>{{transaction.UserID}}</td>
           <td>{{transaction.CustomerID}}</td>
           <td>{{transaction.DateOfPurchase}}</td>
           <td>{{transaction.SalesID}}</td>

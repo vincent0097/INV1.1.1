@@ -106,6 +106,7 @@ namespace INV1._1._1.Controllers
                     myCommand.Parameters.AddWithValue("@SupplierID", Suppliers.SupplierID);
                     myCommand.Parameters.AddWithValue("@SupplierName", Suppliers.SupplierName);
                     myCommand.Parameters.AddWithValue("@ProductID", Suppliers.ProductID);
+                    myCommand.Parameters.AddWithValue("@Email", Suppliers.Email);
                     myCommand.Parameters.AddWithValue("@PhoneNo", Suppliers.PhoneNo);
                     myCommand.Parameters.AddWithValue("@Address", Suppliers.Address);
                     //myCommand.Parameters.AddWithValue("@PhotoFileName", emp.PhotoFileName);
@@ -119,8 +120,8 @@ namespace INV1._1._1.Controllers
             return new JsonResult("Updated Successfully");
         }
 
-        [HttpDelete("{ID}")]
-        public JsonResult Delete(Suppliers Suppliers)
+        [HttpDelete("{id}")]
+        public JsonResult Delete(int id)
         {
             string query = @"
                            delete Suppliers from dbo.Suppliers
@@ -135,7 +136,7 @@ namespace INV1._1._1.Controllers
                 myCon.Open();
                 using (SqlCommand myCommand = new SqlCommand(query, myCon))
                 {
-                    myCommand.Parameters.AddWithValue("@SupplierID", Suppliers.SupplierID);
+                    myCommand.Parameters.AddWithValue("@SupplierID", id);
 
                     myReader = myCommand.ExecuteReader();
                     table.Load(myReader);

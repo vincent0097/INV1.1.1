@@ -1,23 +1,24 @@
 <body>
-  <form class="collect" #suppliers="ngForm" (ngSubmit)="onSubmit(suppliers)">
+  <form class="collect" #suppliersdata="ngForm" (ngSubmit)="onSubmit(suppliersdata)">
     <div class="data">
-      <input type="text" ngModel name="supplierName" class="form-control form-control-lg" />
+      <input type="hidden"  ngModel="{{suppliers.SupplierID}}"  name="SupplierID"  class="form-control form-control-lg" />
+      <input type="text" ngModel="{{suppliers.SupplierName}}" name="supplierName" class="form-control form-control-lg" />
       <label class="label" for="supplierName">Suppliers Name</label>
     </div>
     <div class="data">
-      <input type="int" ngModel name="productID" class="form-control form-control-lg" />
+      <input type="int" ngModel="{{suppliers.ProductID}}" name="productID" class="form-control form-control-lg" />
       <label class="label" for="productID">ProductID</label>
     </div>
     <div class="data">
-      <input type="int" ngModel name="email" class="form-control form-control-lg" />
+      <input type="int" ngModel="{{suppliers.Email}}" name="email" class="form-control form-control-lg" />
       <label class="label" for="email">Email</label>
     </div>
     <div class="data">
-      <input type="int" ngModel name="phoneNo" class="form-control form-control-lg" />
+      <input type="int" ngModel="{{suppliers.PhoneNo}}" name="phoneNo" class="form-control form-control-lg" />
       <label class="label" for="phoneNo">Phone No</label>
     </div>
     <div class="data">
-      <input type="int" ngModel name="address" class="form-control form-control-lg" />
+      <input type="int" ngModel="{{suppliers.Address}}" name="address" class="form-control form-control-lg" />
       <label class="label" for="address">Address</label>
     </div>
     <button class="btn" type="Add">Add</button>
@@ -33,14 +34,14 @@
         <th>Address</th>
         <th>Action</th>
       </tr>
-      <tr class="tr">
-        <td>1</td>
-        <td>Adenkule</td>
-        <td>1</td>
-        <td>younow@gmail.com</td>
-        <td>1234567890</td>
-        <td>juja</td>
-        <td><button class="btn" type="Edit">Edit</button><button class="btn" type="Delete">Delete</button></td>
+      <tr class="tr" *ngFor="let suppliers of supplierslist">
+        <td>{{suppliers.SupplierID}}</td>
+        <td>{{suppliers.SupplierName}}</td>
+        <td>{{suppliers.ProductID}}</td>
+        <td>{{suppliers.Email}}</td>
+        <td>{{suppliers.PhoneNo}}</td>
+        <td>{{suppliers.Address}}</td>
+        <td><button class="btn" (click)="editSupplier(suppliers)">Edit</button><button class="btn" (click)="deleteSupplier(suppliers.SupplierID)">Delete</button></td>
       </tr>
       <tr class="tr"></tr>
     </table>

@@ -55,8 +55,8 @@ namespace INV1._1._1.Controllers
         public JsonResult Post(Transactions Transactions)
         {
             string query = @"
-                           insert into dbo.Transactions (UsreID,CustomerID,DateOfPurchase,SalesID,AmountTransacted)
-                           values (@UsreID,@CustomerID,@DateOfPurchase,@SalesID,@AmountTransacted)
+                           insert into dbo.Transactions (CustomerID,DateOfPurchase,SalesID,AmountTransacted)
+                           values (@CustomerID,@DateOfPurchase,@SalesID,@AmountTransacted)
                             ";
 
             DataTable table = new DataTable();
@@ -67,7 +67,6 @@ namespace INV1._1._1.Controllers
                 myCon.Open();
                 using (SqlCommand myCommand = new SqlCommand(query, myCon))
                 {
-                    myCommand.Parameters.AddWithValue("@UserID", Transactions.UserID);
                     myCommand.Parameters.AddWithValue("@CustomerID", Transactions.CustomerID);
                     myCommand.Parameters.AddWithValue("@DateOfPurchase", Transactions.DateOfPurchase);
                     myCommand.Parameters.AddWithValue("@SalesID", Transactions.SalesID);
@@ -88,10 +87,8 @@ namespace INV1._1._1.Controllers
         {
             string query = @"
                            update dbo.Transactions
-                           set UserID=@UserID,
-                           CustomerID=@CustomerID,
+                           set CustomerID=@CustomerID,
                            DateOfPurchase=@DateOfPurchase,
-                           Costsold=@CostSold,
                            SalesID=@SalesID,
                            AmountTransacted=@AmountTransacted
                             where TransactionID=@TransactionID
@@ -105,7 +102,7 @@ namespace INV1._1._1.Controllers
                 myCon.Open();
                 using (SqlCommand myCommand = new SqlCommand(query, myCon))
                 {
-                    myCommand.Parameters.AddWithValue("@UserID", Transactions.UserID);
+                    myCommand.Parameters.AddWithValue("@TransactionID", Transactions.TransactionID);
                     myCommand.Parameters.AddWithValue("@CustomerID", Transactions.CustomerID);
                     myCommand.Parameters.AddWithValue("@DateOfPurchase", Transactions.DateOfPurchase);
                     myCommand.Parameters.AddWithValue("@SalesID", Transactions.SalesID);

@@ -55,8 +55,8 @@ namespace INV1._1._1.Controllers
         public JsonResult Post(Purchases Purchases)
         {
             string query = @"
-                           insert into dbo.Purchases (SupplierID,ProductID,CostOfPurchase,TotalCost)
-                           values (@SupplierID,@ProductID,@CostOfPurchase,@TotalCost)
+                           insert into dbo.Purchases (SupplierID,ProductID,CostOfPurchase,TotalCost,DateOfPurchase)
+                           values (@SupplierID,@ProductID,@CostOfPurchase,@TotalCost,@DateOfPurchase)
                             ";
 
             DataTable table = new DataTable();
@@ -71,6 +71,7 @@ namespace INV1._1._1.Controllers
                     myCommand.Parameters.AddWithValue("@ProductID", Purchases.ProductID);
                     myCommand.Parameters.AddWithValue("@CostOfPurchase", Purchases.CostOfPurchase);
                     myCommand.Parameters.AddWithValue("@TotalCost", Purchases.TotalCost);
+                    myCommand.Parameters.AddWithValue("@DateOfPurchase", Purchases.DateOfPurchase);
                     myReader = myCommand.ExecuteReader();
                     table.Load(myReader);
                     myReader.Close();
@@ -87,10 +88,12 @@ namespace INV1._1._1.Controllers
         {
             string query = @"
                            update dbo.Purchases
-                           set PurchaseID=@PurchaseID,
+                           set SupplierID=@SupplierID,
+                            ProductID=@ProductID,
                             CostOfPurchase=@CostOfPurchase,
-                            TotalCost=@TotalCost
-                            where PurchasesID=@PurchaseID
+                            TotalCost=@TotalCost,
+                            DateOfPurchase=@DateOfPurchase
+                            where PurchaseID=@PurchaseID
                             ";
 
             DataTable table = new DataTable();
@@ -101,10 +104,12 @@ namespace INV1._1._1.Controllers
                 myCon.Open();
                 using (SqlCommand myCommand = new SqlCommand(query, myCon))
                 {
-                    myCommand.Parameters.AddWithValue("@SupplierID", Purchases.SupplierID);
                     myCommand.Parameters.AddWithValue("@PurchaseID", Purchases.PurchaseID);
+                    myCommand.Parameters.AddWithValue("@SupplierID", Purchases.SupplierID);
+                    myCommand.Parameters.AddWithValue("@ProductID", Purchases.ProductID);
                     myCommand.Parameters.AddWithValue("@CostOfPurchase", Purchases.CostOfPurchase);
                     myCommand.Parameters.AddWithValue("@TotalCost", Purchases.TotalCost);
+                    myCommand.Parameters.AddWithValue("@DateOfPurchase", Purchases.DateOfPurchase);
                     //myCommand.Parameters.AddWithValue("@PhotoFileName", emp.PhotoFileName);
                     myReader = myCommand.ExecuteReader();
                     table.Load(myReader);
@@ -116,8 +121,8 @@ namespace INV1._1._1.Controllers
             return new JsonResult("Updated Successfully");
         }
 
-        [HttpDelete("{ID}")]
-        public JsonResult Delete(Purchases Purchases)
+        [HttpDelete("{id}")]
+        public JsonResult Delete(int id)
         {
             string query = @"
                            delete Purchases from dbo.Purchases
@@ -132,7 +137,7 @@ namespace INV1._1._1.Controllers
                 myCon.Open();
                 using (SqlCommand myCommand = new SqlCommand(query, myCon))
                 {
-                    myCommand.Parameters.AddWithValue("@PurchaseID", Purchases.PurchaseID);
+                    myCommand.Parameters.AddWithValue("@PurchaseID", id);
 
                     myReader = myCommand.ExecuteReader();
                     table.Load(myReader);

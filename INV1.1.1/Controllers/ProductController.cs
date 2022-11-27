@@ -115,8 +115,8 @@ namespace INV1._1._1.Controllers
             return new JsonResult("Updated Successfully");
         }
 
-        [HttpDelete("{ID}")]
-        public JsonResult Delete(Product product)
+        [HttpDelete("{id}")]
+        public JsonResult Delete(int id)
         {
             string query = @"
                            delete Product from dbo.Product
@@ -131,7 +131,7 @@ namespace INV1._1._1.Controllers
                 myCon.Open();
                 using (SqlCommand myCommand = new SqlCommand(query, myCon))
                 {
-                    myCommand.Parameters.AddWithValue("@ProductID", product.ProductID);
+                    myCommand.Parameters.AddWithValue("@ProductID", id);
 
                     myReader = myCommand.ExecuteReader();
                     table.Load(myReader);

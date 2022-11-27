@@ -1,19 +1,21 @@
 <body>
-  <form class="collect" #sales="ngForm" (ngSubmit)="onSubmit(sales)">
+  <form class="collect" #salesdata="ngForm" (ngSubmit)="onSubmit(salesdata)">
     <div class="data">
-      <input type="int" ngModel name="customerID" class="form-control form-control-lg" />
+      <input type="hidden"  ngModel="{{sales.SalesID}}"  name="SalesID"  class="form-control form-control-lg" />
+      <input type="int" ngModel="{{sales.CustomerID}}" name="customerID" class="form-control form-control-lg" />
       <label class="label" for="customerID">CustomerID</label>
     </div>
     <div class="data">
-      <input type="int" ngModel name="productID" class="form-control form-control-lg" />
+      <input type="hidden"  ngModel="{{sales.DateOfSale}}"  name="DateOfSale"  class="form-control form-control-lg" />
+      <input type="int" ngModel="{{sales.ProductID}}" name="productID" class="form-control form-control-lg" />
       <label class="label" for="productID">ProductID</label>
     </div>
     <div class="data">
-      <input type="text" ngModel name="costSold" class="form-control form-control-lg" />
+      <input type="text" ngModel="{{sales.CostSold}}" name="costSold" class="form-control form-control-lg" />
       <label class="label" for="costSold">Cost</label>
     </div>
     <div class="data">
-      <input type="text" ngModel name="totalSold" class="form-control form-control-lg" />
+      <input type="text" ngModel="{{sales.TotalSold}}" name="totalSold" class="form-control form-control-lg" />
       <label class="label" for="totalSold">Total Cost</label>
     </div>
     <button class="btn" type="Add">Add</button>
@@ -29,14 +31,14 @@
         <th>Total Cost</th>
         <th>Action</th>
       </tr>
-      <tr class="tr">
-        <td>1</td>
-        <td>1</td>
-        <td>1-2-2022</td>
-        <td>1</td>
-        <td>200,000.00</td>
-        <td>200,000.00</td>
-        <td><button class="btn" type="Edit">Edit</button><button class="btn" type="Delete">Delete</button></td>
+      <tr class="tr"*ngFor="let sales of saleslist">
+        <td>{{sales.SalesID}}</td>
+        <td>{{sales.CustomerID}}</td>
+        <td>{{sales.DateOfSale}}</td>
+        <td>{{sales.ProductID}}</td>
+        <td>{{sales.CostSold}}</td>
+        <td>{{sales.TotalSold}}</td>
+        <td><button class="btn" (click)="editSales(sales)">Edit</button><button class="btn" (click)="deleteSales(sales.SalesID)">Delete</button></td>
       </tr>
       <tr class="tr"></tr>
     </table>

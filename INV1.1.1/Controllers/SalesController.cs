@@ -93,7 +93,7 @@ namespace INV1._1._1.Controllers
                            DateOfSale=@DateOfSale,
                            Costsold=@CostSold,
                            TotalSold=@TotalSold
-                            where SalesID=@PurchaseID
+                            where SalesID=@SalesID
                             ";
 
                 DataTable table = new DataTable();
@@ -104,6 +104,7 @@ namespace INV1._1._1.Controllers
                     myCon.Open();
                     using (SqlCommand myCommand = new SqlCommand(query, myCon))
                     {
+                        myCommand.Parameters.AddWithValue("@SalesID", Sales.SalesID); 
                         myCommand.Parameters.AddWithValue("@CustomerID", Sales.CustomerID);
                         myCommand.Parameters.AddWithValue("@DateOfSale", Sales.DateOfSale);
                         myCommand.Parameters.AddWithValue("@ProductID", Sales.ProductID);
@@ -120,11 +121,11 @@ namespace INV1._1._1.Controllers
                 return new JsonResult("Updated Successfully");
             }
 
-            [HttpDelete("{ID}")]
-            public JsonResult Delete(Sales Sales)
+            [HttpDelete("{id}")]
+            public JsonResult Delete(int id)
             {
                 string query = @"
-                           delete Sales from dbo.Sales
+                           delete from dbo.Sales
                             where SalesID=@SalesID
                             ";
 
@@ -136,7 +137,7 @@ namespace INV1._1._1.Controllers
                     myCon.Open();
                     using (SqlCommand myCommand = new SqlCommand(query, myCon))
                     {
-                        myCommand.Parameters.AddWithValue("@SalesID", Sales.SalesID);
+                        myCommand.Parameters.AddWithValue("@SalesID", id);
 
                         myReader = myCommand.ExecuteReader();
                         table.Load(myReader);

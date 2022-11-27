@@ -1,5 +1,5 @@
 <body>
-  <form #inventory="ngForm" (ngSubmit)="onSubmit(inventory)">
+  <form #inventorydata="ngForm" (ngSubmit)="onSubmit(inventorydata)">
     <div class="data">
       <input type="hidden"  ngModel="{{inventory.ProductID}"  name="CustomerID"  class="form-control form-control-lg" />
       <input type="text" ngModel="{{inventory.ProductName}}" name="ProductName" class="form-control form-control-lg" />
@@ -25,12 +25,12 @@
           <th>Description</th>
           <th>Action</th>
         </tr>
-        <tr class="tr">
+        <tr class="tr" *ngFor="let inventory of inventorylist">
           <td>{{inventory.ProductID}</td>
           <td>{{inventory.ProductName}}</td>
           <td>{{inventory.ProductType}}</td>
           <td>{{inventory.Description}}</td>
-          <td><button class="btn" (click)="editInventory(inventory)">Edit</button><button class="btn" (click)="deleteInventory(inventory)">Delete</button></td>
+          <td><button class="btn" (click)="editInventory(inventory)">Edit</button><button class="btn" (click)="deleteInventory(inventory.ProductID)">Delete</button></td>
         </tr>
         <tr class="tr">
           

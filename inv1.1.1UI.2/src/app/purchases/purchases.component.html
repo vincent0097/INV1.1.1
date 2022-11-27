@@ -1,20 +1,22 @@
 <body>
-    <form class="collect" #purchases="ngForm" (ngSubmit)="onSubmit(purchases)">
+    <form class="collect" #purchasesdata="ngForm" (ngSubmit)="onSubmit(purchasesdata)">
       <div class="data">
-        <input type="text" ngModel name="supplierID" class="form-control form-control-lg" />
+        <input type="hidden"  ngModel="{{purchases.PurchaseID}}"  name="PurchaseID"  class="form-control form-control-lg" />
+        <input type="text" ngModel="{{purchases.SupplierID}}" name="supplierID" class="form-control form-control-lg" />
         <label class="label" for="supplierID">Supplier ID</label>
       </div>
       <div class="data">
-        <input type="int" ngModel name="productID" class="form-control form-control-lg" />
+        <input type="int" ngModel="{{purchases.ProductID}}" name="productID" class="form-control form-control-lg" />
         <label class="label" for="productID">ProductID</label>
       </div>
       <div class="data">
-        <input type="int" ngModel name="costOfPurchase" class="form-control form-control-lg" />
+        <input type="int" ngModel="{{purchases.CostOfPurchase}}" name="costOfPurchase" class="form-control form-control-lg" />
         <label class="label" for="costOfPurchase">Cost</label>
       </div>
       <div class="data">
-        <input type="int" ngModel name="totalCost" class="form-control form-control-lg" />
+        <input type="int" ngModel="{{purchases.TotalCost}}" name="totalCost" class="form-control form-control-lg" />
         <label class="label" for="totalCost">Total Cost</label>
+        <input type="hidden"  ngModel="{{purchases.DateOfPurchase}}"  name="DateOfPurchase"  class="form-control form-control-lg" />
       </div>
       <button class="btn" type="Add">Add</button>
     </form>
@@ -29,14 +31,14 @@
           <th>Date Of Purchase</th>
           <th>Action</th>
         </tr>
-        <tr class="tr">
-          <td>1</td>
-          <td>1</td>
-          <td>1</td>
-          <td>150,000.00</td>
-          <td>150,000.00</td>
-          <td>30-12-2021</td>
-          <td><button class="btn" type="Edit">Edit</button><button class="btn" type="Delete">Delete</button></td>
+        <tr class="tr" *ngFor="let purchases of purchaseslist">
+          <td>{{purchases.PurchaseID}}</td>
+          <td>{{purchases.SupplierID}}</td>
+          <td>{{purchases.ProductID}}</td>
+          <td>{{purchases.CostOfPurchase}}</td>
+          <td>{{purchases.TotalCost}}</td>
+          <td>{{purchases.DateOfPurchase}}</td>
+          <td><button class="btn" (click)="editPurchase(purchases)">Edit</button><button class="btn"  (click)="deletePurchase(purchases.PurchaseID)">Delete</button></td>
         </tr>
         <tr class="tr"></tr>
       </table>

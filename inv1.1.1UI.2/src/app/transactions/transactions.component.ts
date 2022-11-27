@@ -36,7 +36,7 @@ export class TransactionsComponent implements OnInit {
 
       if(response=="Deleted Successfully"){
         this.getTransactions()
-        alert("Customer Deleted")
+        alert("Transaction Deleted")
         
       }
     },

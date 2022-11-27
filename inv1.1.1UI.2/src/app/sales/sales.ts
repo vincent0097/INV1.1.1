@@ -1,8 +1,8 @@
 export class Sales{
-    salesID!: Number;
-    customerID: BigInteger | undefined;
-    dateOfSale: string | undefined;
-    productID: BigInteger | undefined;
-    costSold: Number | undefined
-    totalSold: Number | undefined;
+    SalesID!: Number;
+    CustomerID: BigInteger | undefined;
+    DateOfSale: string | undefined;
+    ProductID: BigInteger | undefined;
+    CostSold: Number | undefined
+    TotalSold: Number | undefined;
 }
