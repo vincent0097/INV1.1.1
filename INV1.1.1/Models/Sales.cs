@@ -11,7 +11,7 @@ namespace INV1._1._1.Models
         public int CustomerID { get; set; }
         public DateTime DateOfSale { get; set; }
         public int ProductID { get; set; }
-        public decimal CostSold { get; set; }
-        public decimal TotalSold { get; set; }
+        public decimal Unit_price { get; set; }
+        public string CustomerName { get; set; }
     }
 }

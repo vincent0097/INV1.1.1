@@ -46,16 +46,16 @@ export class CustomersService {
 
   //inventory//
   public getInventory(): Observable<any> {
-    return this.http.get<any>(`${this.apiServerUrl}/inventory`)
+    return this.http.get<any>(`${this.apiServerUrl}/product`)
   }
   public createInventory(data:Inventory): Observable<any> {
-    return this.http.post<any>(`${this.apiServerUrl}/inventory`,data)
+    return this.http.post<any>(`${this.apiServerUrl}/product`,data)
   }
   public updateInventory(data:Inventory): Observable<any> {
-    return this.http.put<any>(`${this.apiServerUrl}/inventory`,data)
+    return this.http.put<any>(`${this.apiServerUrl}/product`,data)
   }
   public DeleteInventory(data:any): Observable<any> {
-    return this.http.delete<any>(`${this.apiServerUrl}/inventory/`+data)
+    return this.http.delete<any>(`${this.apiServerUrl}/product/`+data)
   }
 
   //purchases//

@@ -11,7 +11,6 @@ namespace INV1._1._1.Models
         public int SupplierID { get; set; }
         public int ProductID { get; set; }
         public int CostOfPurchase { get; set; }
-        public int TotalCost { get; set; }
         public DateTime DateOfPurchase { get; set; }
     }
 }

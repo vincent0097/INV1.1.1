@@ -37,7 +37,7 @@ export class InventoryComponent implements OnInit{
 
         if(response=="Deleted Successfully"){
           this.getInventory()
-          alert("Customer Deleted")
+          alert("Inventory Deleted")
           
         }
       },
@@ -57,7 +57,7 @@ export class InventoryComponent implements OnInit{
           if(response=="Updated Successfully"){
             this.getInventory()
             this.isUpdate=false;
-            alert("Customer Updated")
+            alert("Inventory Updated")
             
           }
         },
@@ -72,7 +72,7 @@ export class InventoryComponent implements OnInit{
     
             if(response=="Added Successfully"){
               this.getInventory()
-              alert("Customer saved")
+              alert("Inventory saved")
               
             }
           },

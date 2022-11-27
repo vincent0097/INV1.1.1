@@ -56,8 +56,8 @@ namespace INV1._1._1.Controllers
             public JsonResult Post(Sales Sales)
             {
                 string query = @"
-                           insert into dbo.Sales (CustomerID,DateOfSale,ProductID,CostSold,TotalSold)
-                           values (@CustomerID,@DateOfSale,@ProductID,@CostSold,@TotalSold)
+                           insert into dbo.Sales (CustomerID,DateOfSale,ProductID,Unit_price,CustomerName)
+                           values (@CustomerID,@DateOfSale,@ProductID,@Unit_price,@CustomerName)
                             ";
 
                 DataTable table = new DataTable();
@@ -71,9 +71,9 @@ namespace INV1._1._1.Controllers
                         myCommand.Parameters.AddWithValue("@CustomerID", Sales.CustomerID);
                         myCommand.Parameters.AddWithValue("@DateOfSale", Sales.DateOfSale);
                         myCommand.Parameters.AddWithValue("@ProductID", Sales.ProductID);
-                        myCommand.Parameters.AddWithValue("@CostSold", Sales.CostSold);
-                        myCommand.Parameters.AddWithValue("@TotalSold", Sales.TotalSold);
-                        myReader = myCommand.ExecuteReader();
+                        myCommand.Parameters.AddWithValue("@Unit_price", Sales.Unit_price);
+                    myCommand.Parameters.AddWithValue("@CustomerName", Sales.CustomerName);
+                    myReader = myCommand.ExecuteReader();
                         table.Load(myReader);
                         myReader.Close();
                         myCon.Close();
@@ -91,8 +91,8 @@ namespace INV1._1._1.Controllers
                            update dbo.Sales
                            set CustomerID=@CustomerID,
                            DateOfSale=@DateOfSale,
-                           Costsold=@CostSold,
-                           TotalSold=@TotalSold
+                           Unit_price=@Unit_price,
+CustomerName=@CustomerName
                             where SalesID=@SalesID
                             ";
 
@@ -108,10 +108,10 @@ namespace INV1._1._1.Controllers
                         myCommand.Parameters.AddWithValue("@CustomerID", Sales.CustomerID);
                         myCommand.Parameters.AddWithValue("@DateOfSale", Sales.DateOfSale);
                         myCommand.Parameters.AddWithValue("@ProductID", Sales.ProductID);
-                        myCommand.Parameters.AddWithValue("@CostSold", Sales.CostSold);
-                        myCommand.Parameters.AddWithValue("@TotalSold", Sales.TotalSold);
-                        //myCommand.Parameters.AddWithValue("@PhotoFileName", emp.PhotoFileName);
-                        myReader = myCommand.ExecuteReader();
+                        myCommand.Parameters.AddWithValue("@Unit_price", Sales.Unit_price);
+                    myCommand.Parameters.AddWithValue("@CustomerName", Sales.CustomerName);
+                    //myCommand.Parameters.AddWithValue("@PhotoFileName", emp.PhotoFileName);
+                    myReader = myCommand.ExecuteReader();
                         table.Load(myReader);
                         myReader.Close();
                         myCon.Close();

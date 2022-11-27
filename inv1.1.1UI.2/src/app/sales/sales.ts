@@ -3,6 +3,6 @@ export class Sales{
     CustomerID: BigInteger | undefined;
     DateOfSale: string | undefined;
     ProductID: BigInteger | undefined;
-    CostSold: Number | undefined
-    TotalSold: Number | undefined;
+    Unit_price: Number | undefined;
+    CustomerName: string | undefined;
 }
