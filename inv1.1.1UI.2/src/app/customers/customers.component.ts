@@ -76,7 +76,6 @@ export class CustomersComponent  implements OnInit{
             if(response=="Added Successfully"){
               this.getCustomers()
               alert("Customer saved")
-              
             }
           },
           (error: HttpErrorResponse) => {

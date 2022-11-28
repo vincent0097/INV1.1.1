@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import {  Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Auth } from '../../auth/auth';
 import { Customers } from './customers/customers';
 import { Inventory } from './inventory/inventory';
 import { Purchases } from './purchases/purchases';
@@ -98,5 +99,10 @@ export class CustomersService {
   }
   public DeleteSales(data:any): Observable<any> {
     return this.http.delete<any>(`${this.apiServerUrl}/sales/`+data)
+  }
+
+  //login//
+  public createAuth(data:Auth): Observable<any> {
+    return this.http.post<any>(`${this.apiServerUrl}/Login`,data)
   }
 }

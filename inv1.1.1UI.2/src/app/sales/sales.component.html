@@ -25,19 +25,19 @@
       <tr class="tr">
         <th>SalesID</th>
         <th>CustomerID</th>
+        <th>Customer Name</th>
         <th>Date Of sale</th>
         <th>ProductID</th>
         <th>unit price</th>
-        <th>Customer Name</th>
         <th>Action</th>
       </tr>
       <tr class="tr"*ngFor="let sales of saleslist">
         <td>{{sales.SalesID}}</td>
         <td>{{sales.CustomerID}}</td>
+        <td>{{sales.CustomerName}}</td>
         <td>{{sales.DateOfSale}}</td>
         <td>{{sales.ProductID}}</td>
         <td>{{sales.Unit_price}}</td>
-        <td>{{sales.CustomerName}}</td>
         <td><button class="btn" (click)="editSales(sales)">Edit</button><button class="btn" (click)="deleteSales(sales.SalesID)">Delete</button></td>
       </tr>
       <tr class="tr"></tr>

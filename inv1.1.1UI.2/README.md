@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Inv111UI2
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.0.
@@ -25,3 +26,6 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+=======
+# inv1.1.1UI.2
+>>>>>>> b8ce8c7067084b084ea4b76a73018e03a611254a
